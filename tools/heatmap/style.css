@@ -1,0 +1,85 @@
+html, body, #app {
+  height: 100%;
+  overflow: hidden; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background: #fff; }
+
+[v-cloak] {
+  display: none; }
+
+.wrap {
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  padding: 1rem; }
+
+.canvas {
+  position: relative;
+  flex: 1; }
+
+.canvas-wrap, .heatmap-container, .control {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0; }
+
+.control span {
+  position: absolute;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: .5;
+  background: #000;
+  cursor: pointer;
+  transition: transform 200ms ease;
+  margin-left: -5px;
+  margin-top: -5px; }
+  .control span:hover {
+    transform: scale(2); }
+
+.heatmap-container {
+  pointer-events: none; }
+
+.toolbar {
+  display: flex;
+  flex-flow: column;
+  width: 20%;
+  max-width: 260px;
+  padding: 1rem;
+  border-radius: 3px;
+  background: #eee; }
+  .toolbar td {
+    vertical-align: middle; }
+  .toolbar input {
+    margin: 0; }
+  .toolbar > div + div {
+    margin-top: 2rem; }
+
+.editor {
+  position: absolute;
+  width: 200px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 1rem;
+  transform: translate(-50%, -110%); }
+  .editor p:last-of-type {
+    margin-bottom: 0; }
+
+.ml-a {
+  margin-left: auto !important; }
+
+.mt-a {
+  margin-top: auto !important; }
+
+.button-block {
+  width: 100%; }
+
+.hidden {
+  display: none !important; }
