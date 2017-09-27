@@ -1,0 +1,7 @@
+{
+  "name": "heatmap",
+  "version": "0.0.1",
+  "scripts": {
+    "dev:sass": "node-sass -w style.scss -o ."
+  }
+}

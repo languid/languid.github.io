@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="//cdn.bootcss.com/milligram/1.3.0/milligram.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/ion-rangeslider/2.2.0/css/ion.rangeSlider.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="wrap">
+    <div class="toolbar">
+      <div>
+        <button class="button-block button-outline" @click="$refs.file.click()">选择底图</button>
+        <table v-show="loaded" v-cloak>
+          <tr>
+            <td width="100">最大值</td>
+            <td>
+              <input type="range" v-model="max" min="50" max="100" />
+            </td>
+          </tr>
+          <tr>
+            <td>半径</td>
+            <td>
+              <input type="range" v-model="radius" min="5" max="200" />
+            </td>
+          </tr>
+          <tr>
+            <td>透明度</td>
+            <td>
+              <input type="range" v-model="opacity" min="0" max="100" />
+            </td>
+          </tr>
+          <tr>
+            <td>控制手柄</td>
+            <td><input type="checkbox" v-model="controllable" /></td>
+          </tr>
+          <tr>
+            <td>随机点</td>
+            <td>
+              <input type="number" v-model="count" />
+            </td>
+          </tr>
+        </table>
+        <button v-show="loaded" v-cloak class="button-block button-outline" @click="generate">生成随机点</button>
+        <button v-show="loaded" v-cloak class="button-block button-clear" @click="clearHeatmap">清除热图</button>
+        <input type="file" ref="file" class="hidden" />
+      </div>
+      <div class="mt-a">
+        <button v-show="loaded" @click="download" v-cloak class="button-block">下载</button>
+      </div>
+    </div>
+    <div class="canvas" v-cloak>
+      <div class="canvas-wrap" ref="container">
+        <canvas :width="size.width" :height="size.height" ref="canvas"></canvas>
+      </div>
+      <div class="heatmap-container" :style="{opacity: opacity/100}" ref="heatmap"></div>
+      <div class="control" v-show="controllable" @dblclick="add">
+        <span
+          v-for="item in list"
+          v-drag="item"
+          @click="focus(item)"
+          @dblclick.stop="remove(item, $event)"
+          data-control-handle="true"
+          :style="{left: item.x + 'px', top: item.y + 'px'}"
+        ></span>
+      </div>
+      <div class="editor" ref="editor" v-show="selected" :style="editorPosition">
+        <p>半径 <input type="range" min="5" max="200" v-model="selectedRadius" /></p>
+        <p>数值 <input type="range" min="1" max="100" v-model="selectedValue" /></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/interact.js/1.2.9/interact.min.js"></script>
+<script src="//cdn.bootcss.com/heatmap.js/2.0.2/heatmap.min.js"></script>
+<script src="//cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script src="//cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
