@@ -68,15 +68,27 @@ $spacer: 1rem;
 
   td {
     vertical-align: middle;
+    &:last-child {
+      padding-left: 0;
+    }
   }
 
   input {
     margin: 0;
   }
 
+  input[type=range] {
+    vertical-align: -5px;
+  }
+
   > div + div {
     margin-top: $spacer * 2;
   }
+}
+
+.palette {
+  width: 100%;
+  height: 10px;
 }
 
 .editor {
@@ -86,9 +98,29 @@ $spacer: 1rem;
   border: 1px solid #eee;
   border-radius: 3px;
   padding: $spacer;
-  transform: translate(-50%, -110%);
+  transform: translate(-50%, -115%);
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    border-width: 5px;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -5px;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
   p:last-of-type {
     margin-bottom: 0;
+  }
+  input {
+    margin-bottom: 0;
+    vertical-align: -5px;
   }
 }
 

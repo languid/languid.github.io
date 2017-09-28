@@ -4,6 +4,7 @@
 
 const body = document.body
 let scale = 1
+let dragTimer
 
 Vue.directive('drag', {
   bind (el, bindding, node) {
@@ -11,10 +12,18 @@ Vue.directive('drag', {
     let oy = 0
     el._bindding = bindding
     el._interact = interact(el).draggable({
+      onstart: e => {
+        el._dragging = true
+      },
       onmove: e => {
         el._bindding.value.ox += e.dx / scale
         el._bindding.value.oy += e.dy / scale
         app.drawHeatmap()
+      },
+      onend: e => {
+        setTimeout(() => {
+          el._dragging = false
+        }, 0)
       }
     })
   },
@@ -29,6 +38,22 @@ Vue.directive('drag', {
 
 const app = new Vue({
   el: '#app',
+  components: {
+    colorPicker: {
+      template: '<div :style="{background: value}"></div>',
+      props: {
+        value: String
+      },
+      mounted () {
+        const vm = this
+        $(this.$el).colorPicker({
+          renderCallback () {
+            vm.$emit('update', '#'+this.color.colors.HEX)
+          }
+        })
+      }
+    }
+  },
   data () {
     this.imgSrc = ''
     this.heatmap = null
@@ -51,6 +76,8 @@ const app = new Vue({
       controllable: true,
       count: 100,
       opacity: 80,
+      level: 10,
+      colors: ['#00f', '#0f0', 'yellow', '#f00'],
       selected: {
         value: 0
       },
@@ -83,6 +110,10 @@ const app = new Vue({
         this.selected.value = +v
         this.drawHeatmap()
       }
+    },
+    level () {
+      this.updatePalette()
+      this.drawHeatmap()
     }
   },
   computed: {
@@ -225,6 +256,8 @@ const app = new Vue({
           radius: this.radius,
           blur: .8
         })
+
+        // this.updatePalette()
       }
 
       this.heatmap._renderer.setDimensions(this.size.width, this.size.height)
@@ -265,10 +298,12 @@ const app = new Vue({
       })
       this.drawHeatmap()
     },
-    focus (item) {
-      this.selectedValue = item.value
-      this.selectedRadius = item.radius || this.radius
-      this.selected = item
+    focus (item, e) {
+      if (!e.target._dragging) {
+        this.selectedValue = item.value
+        this.selectedRadius = item.radius || this.radius
+        this.selected = item
+      }
     },
     download () {
       const canvas = document.createElement('canvas')
@@ -282,5 +317,29 @@ const app = new Vue({
         saveAs(blob, "heatmap.png")
       })
     },
+    updatePalette () {
+      let width = 256
+      let n = 0
+      let colors = this.colors
+      let levels = this.level
+      let w = width / levels
+      let colorLevel = chroma.scale(colors).domain([0, levels]).classes(levels)
+
+      if (!this._palette) {
+        let paletteCanvas = this.$refs.palette
+        let paletteCtx = paletteCanvas.getContext('2d')
+        paletteCanvas.width = width
+        paletteCanvas.height = 10
+        this._palette = paletteCtx
+      }
+
+      while (n < levels) {
+        this._palette.fillStyle = colorLevel(n).hex()
+        this._palette.fillRect(n * w, 0, (n + 1) * w, 10)
+        n++
+      }
+
+      this.heatmap._renderer._palette = this._palette.getImageData(0, 0, width, 1).data
+    }
   }
 });

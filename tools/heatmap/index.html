@@ -15,7 +15,7 @@
         <button class="button-block button-outline" @click="$refs.file.click()">选择底图</button>
         <table v-show="loaded" v-cloak>
           <tr>
-            <td width="100">最大值</td>
+            <td width="80">最大值</td>
             <td>
               <input type="range" v-model="max" min="50" max="100" />
             </td>
@@ -33,13 +33,25 @@
             </td>
           </tr>
           <tr>
-            <td>控制手柄</td>
+            <td>控制点</td>
             <td><input type="checkbox" v-model="controllable" /></td>
           </tr>
           <tr>
             <td>随机点</td>
             <td>
-              <input type="number" v-model="count" />
+              <input type="number" v-model="count" min="0" max="10000" />
+            </td>
+          </tr>
+          <tr>
+            <td>色数</td>
+            <td>
+              <input type="range" v-model="level" min="3" max="100" />
+            </td>
+          </tr>
+          <tr>
+            <td>颜色</td>
+            <td>
+              <canvas class="palette" ref="palette"></canvas>
             </td>
           </tr>
         </table>
@@ -60,15 +72,15 @@
         <span
           v-for="item in list"
           v-drag="item"
-          @click="focus(item)"
+          @click="focus(item, $event)"
           @dblclick.stop="remove(item, $event)"
           data-control-handle="true"
           :style="{left: item.x + 'px', top: item.y + 'px'}"
         ></span>
       </div>
       <div class="editor" ref="editor" v-show="selected" :style="editorPosition">
-        <p>半径 <input type="range" min="5" max="200" v-model="selectedRadius" /></p>
-        <p>数值 <input type="range" min="1" max="100" v-model="selectedValue" /></p>
+        <p><span>半径</span> <input type="range" min="5" max="200" v-model="selectedRadius" /></p>
+        <p><span>数值</span> <input type="range" min="1" max="100" v-model="selectedValue" /></p>
       </div>
     </div>
   </div>
@@ -76,6 +88,8 @@
 <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/interact.js/1.2.9/interact.min.js"></script>
 <script src="//cdn.bootcss.com/heatmap.js/2.0.2/heatmap.min.js"></script>
+<script src="//cdn.bootcss.com/chroma-js/1.3.4/chroma.min.js"></script>
+<script src="//cdn.bootcss.com/tinyColorPicker/1.1.1/jqColorPicker.min.js"></script>
 <script src="//cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
 <script src="//cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
 <script src="./app.js"></script>
