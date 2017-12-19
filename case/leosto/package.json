@@ -1,0 +1,29 @@
+{
+  "name": "leosto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:sass": "node-sass -w src/scss/style.scss -o dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/languid/leosto.git"
+  },
+  "keywords": [
+    "offcial",
+    "website"
+  ],
+  "author": "longuid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/languid/leosto/issues"
+  },
+  "homepage": "https://github.com/languid/leosto#readme",
+  "devDependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "node-sass": "^4.7.2",
+    "normalize.css": "^7.0.0"
+  }
+}
