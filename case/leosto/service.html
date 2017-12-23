@@ -16,13 +16,16 @@
     return check;
   }();
   ~function(){
-    if (isMobile) {
-      function checkSize () {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px';
+    function checkSize () {
+      var width = document.documentElement.clientWidth;
+      var fz = 16
+      if (width < 575) {
+        fz = width / 20
       }
-      window.addEventListener('resize', checkSize, false)
-      checkSize();
+      document.documentElement.style.fontSize = fz + 'px';
     }
+    window.addEventListener('resize', checkSize, false)
+    checkSize();
   }();
 </script>
   <title>Title</title>
@@ -37,17 +40,17 @@
       <div class="menu-btn-line"></div>
     </div>
   </header>
-  <section class="screen screen-billboard d-none d-md-block">
+  <section class="screen screen-billboard d-none d-lg-block">
     <img src="./dist/assets/our-service.jpg" alt="">
   </section>
   <section class="screen screen-business">
     <div class="hd">
       <h3 class="title">我们的服务</h3>
-      <p class="subtitle d-none d-md-block">我们量身定制服务，以满足每个客户的需求，并一路协作，将优秀的产品，服务和经验推向市场。我们以市场机遇为基础开展工作，坚持不懈地专注于成果，帮助客户发展内部能力。</p>
+      <p class="subtitle d-none d-lg-block">我们量身定制服务，以满足每个客户的需求，并一路协作，将优秀的产品，服务和经验推向市场。我们以市场机遇为基础开展工作，坚持不懈地专注于成果，帮助客户发展内部能力。</p>
     </div>
     <div class="bd">
       <div class="business row">
-        <div class="business-item brand col-6 col-md-3">
+        <div class="business-item brand col-6 col-lg-3">
           <div class="icon"></div>
           <h5 class="business-title">品牌策略</h5>
           <p class="business-task">用户研究</p>
@@ -55,7 +58,7 @@
           <p class="business-task">信息可视化</p>
           <p class="business-task">标志设计及企业VI体系</p>
         </div>
-        <div class="business-item interaction col-6 col-md-3">
+        <div class="business-item interaction col-6 col-lg-3">
           <div class="icon"></div>
           <h5 class="business-title">创意互动</h5>
           <p class="business-task">创意h5设计</p>
@@ -63,7 +66,7 @@
           <p class="business-task">营销策划</p>
           <p class="business-task">信息可视化</p>
         </div>
-        <div class="business-item mobile-design col-6 col-md-3">
+        <div class="business-item mobile-design col-6 col-lg-3">
           <div class="icon"></div>
           <h5 class="business-title">移动界面</h5>
           <p class="business-task">移动界面设计</p>
@@ -71,7 +74,7 @@
           <p class="business-task">竞品分析</p>
           <p class="business-task">交互设计</p>
         </div>
-        <div class="business-item develop col-6 col-md-3">
+        <div class="business-item develop col-6 col-lg-3">
           <div class="icon"></div>
           <h5 class="business-title">开发运维</h5>
           <p class="business-task">html5设计开发</p>
@@ -84,30 +87,30 @@
   </section>
   <section class="screen screen-partner">
     <div class="hd">
-      <h3 class="title"> 一切只为未来更多美好</h3>
-      <p class="subtitle">我揽百山石，君得美玉成。LEOSTO愿做品牌与时间的朋友，在相互信赖中共同探索更好的一切。</p>
+        <h3 class="title"> 一切只为未来更多美好</h3>
+        <p class="subtitle">我揽百山石，君得美玉成。LEOSTO愿做品牌与时间的朋友，在相互信赖中共同探索更好的一切。</p>
     </div>
     <div class="bd">
-      <ul class="partner-list">
-        <li class="partner-list-item"><img src="dist/assets/logo-1.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-2.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-3.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-4.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-5.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-6.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-7.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-8.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-9.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-10.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-11.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-12.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-13.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-14.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-15.png" alt=""></li>
-      </ul>
+        <ul class="partner-list">
+            <li class="partner-list-item"><img src="dist/assets/logo-1.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-2.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-3.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-4.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-5.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-6.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-7.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-8.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-9.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-10.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-11.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-12.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-13.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-14.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-15.png" alt=""></li>
+        </ul>
     </div>
-  </section>
-  <section class="screen screen-contact d-none d-md-block">
+</section>
+  <section class="screen screen-contact d-none d-lg-block">
     <div class="hd">
       <h3 class="title">快速提您的需求</h3>
     </div>
@@ -181,9 +184,12 @@
     </div>
     <div class="sns">
       <div class="websites">
-        <a href="#"><img src="./dist/img/behance.svg" alt=""></a>
-        <a href="#"><img src="./dist/img/dribbble.svg" alt=""></a>
-        <a href="#"><img src="./dist/img/weibo.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/behance.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/dribbble.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/weibo.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/wechat-icon.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/dribbble-icon-grey.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/weibo-icon-grey.svg" alt=""></a>
       </div>
       <div class="wechat">
         <img src="./dist/assets/qr-wechat.png" alt="">

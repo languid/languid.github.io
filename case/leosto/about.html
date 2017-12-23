@@ -16,13 +16,16 @@
     return check;
   }();
   ~function(){
-    if (isMobile) {
-      function checkSize () {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px';
+    function checkSize () {
+      var width = document.documentElement.clientWidth;
+      var fz = 16
+      if (width < 575) {
+        fz = width / 20
       }
-      window.addEventListener('resize', checkSize, false)
-      checkSize();
+      document.documentElement.style.fontSize = fz + 'px';
     }
+    window.addEventListener('resize', checkSize, false)
+    checkSize();
   }();
 </script>
   <title>Title</title>
@@ -45,12 +48,12 @@
     </div>
     <div class="bd">
       <div class="member-list row">
-        <div class="member-list-item col-6 col-md-4"><img src="./dist/assets/p-1.png" alt=""></div>
-        <div class="member-list-item col-6 col-md-4"><img src="./dist/assets/p-2.png" alt=""></div>
-        <div class="member-list-item col-6 col-md-4"><img src="./dist/assets/p-3.png" alt=""></div>
-        <div class="member-list-item col-6 col-md-4"><img src="./dist/assets/p-4.png" alt=""></div>
-        <div class="member-list-item col-6 col-md-4"><img src="./dist/assets/p-5.png" alt=""></div>
-        <div class="member-list-item col-6 col-md-4"><img src="./dist/assets/p-6.png" alt=""></div>
+        <div class="member-list-item col-6 col-lg-4"><img src="./dist/assets/p-1.png" alt=""></div>
+        <div class="member-list-item col-6 col-lg-4"><img src="./dist/assets/p-2.png" alt=""></div>
+        <div class="member-list-item col-6 col-lg-4"><img src="./dist/assets/p-3.png" alt=""></div>
+        <div class="member-list-item col-6 col-lg-4"><img src="./dist/assets/p-4.png" alt=""></div>
+        <div class="member-list-item col-6 col-lg-4"><img src="./dist/assets/p-5.png" alt=""></div>
+        <div class="member-list-item col-6 col-lg-4"><img src="./dist/assets/p-6.png" alt=""></div>
       </div>
     </div>
   </section>
@@ -76,9 +79,12 @@
     </div>
     <div class="sns">
       <div class="websites">
-        <a href="#"><img src="./dist/img/behance.svg" alt=""></a>
-        <a href="#"><img src="./dist/img/dribbble.svg" alt=""></a>
-        <a href="#"><img src="./dist/img/weibo.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/behance.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/dribbble.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/weibo.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/wechat-icon.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/dribbble-icon-grey.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/weibo-icon-grey.svg" alt=""></a>
       </div>
       <div class="wechat">
         <img src="./dist/assets/qr-wechat.png" alt="">

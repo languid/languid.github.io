@@ -5980,7 +5980,7 @@ body, html, .wrap {
     padding-top: 6.25rem; }
   .screen + .screen {
     margin-top: 6rem; }
-  @media (max-width: 991px) {
+  @media (max-width: 575px) {
     .screen .hd .title {
       padding: 0 0.75rem;
       font-size: 1rem; }
@@ -6007,7 +6007,7 @@ body, html, .wrap {
   .screen-about .member-list-item img {
     width: 100%; }
 
-@media (max-width: 991px) {
+@media (max-width: 575px) {
   .screen-about {
     margin-bottom: 2rem; }
     .screen-about .member-list {
@@ -6048,9 +6048,10 @@ body, html, .wrap {
 .screen-business .develop .icon {
   background-image: url(./img/pc.svg); }
 
-@media (max-width: 991px) {
+@media (max-width: 575px) {
   .screen-business {
     height: 100%;
+    max-height: 800px;
     margin-top: 0 !important;
     padding: 5rem 0 0;
     background: #333; }
@@ -6108,7 +6109,7 @@ body, html, .wrap {
   .screen-case .rowspan-2::before {
     padding-top: 31%; }
 
-@media (max-width: 991px) {
+@media (max-width: 575px) {
   .screen-case .case-list-item {
     float: none;
     width: 100%; } }
@@ -6148,21 +6149,19 @@ body, html, .wrap {
       background-size: 100% auto; }
   .screen-home .slogan {
     position: relative;
+    display: flex;
     margin: 2rem auto;
     text-align: center;
-    letter-spacing: 0.5rem; }
-    .screen-home .slogan::before, .screen-home .slogan::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      display: inline-block;
-      width: 7.5rem;
+    letter-spacing: 0.5rem;
+    align-items: center; }
+    .screen-home .slogan span {
+      flex: 1;
+      margin: 0 10%;
+      white-space: nowrap; }
+    .screen-home .slogan .line {
+      width: 20%;
       height: 1px;
       background: #000; }
-    .screen-home .slogan::before {
-      left: 0; }
-    .screen-home .slogan::after {
-      right: 0; }
   .screen-home .subtitle {
     display: flex;
     margin: 0 auto;
@@ -6170,6 +6169,7 @@ body, html, .wrap {
     .screen-home .subtitle .text {
       flex: 1;
       display: block;
+      white-space: nowrap;
       text-align: justify;
       text-justify: distribute-all-lines;
       text-align-last: justify; }
@@ -6191,13 +6191,11 @@ body, html, .wrap {
     border-bottom: 3px solid #000;
     border-radius: 3px;
     transform: rotate(-45deg); }
-  @media (max-width: 991px) {
+  @media (max-width: 575px) {
     .screen-home .slogan {
       margin: 1rem auto;
       font-size: 0.5rem;
       letter-spacing: 0.2rem; }
-      .screen-home .slogan::before, .screen-home .slogan::after {
-        width: 13%; }
     .screen-home .subtitle {
       font-size: 0.9rem;
       flex-wrap: wrap; }
@@ -6247,7 +6245,7 @@ body, html, .wrap {
   .screen-case .rowspan-2::before {
     padding-top: 31%; }
 
-@media (max-width: 991px) {
+@media (max-width: 575px) {
   .screen-case .case-list-item {
     float: none;
     width: 100%; } }
@@ -6312,7 +6310,7 @@ body, html, .wrap {
     background: #000; }
     .header .menu-btn-line + .menu-btn-line {
       margin-top: 0.4rem; }
-  @media (max-width: 991px) {
+  @media (max-width: 575px) {
     .header {
       padding: 0 0.75rem;
       height: 4rem; }
@@ -6406,9 +6404,10 @@ body, html, .wrap {
         flex-wrap: revert;
         justify-content: center; }
         .footer .sns .websites {
-          order: 1; }
+          margin-top: 1rem;
+          order: 2; }
           .footer .sns .websites a {
-            margin: 0 .5rem; } }
+            margin: 0 .5rem !important; } }
 
 .home-page .header {
   position: absolute;
@@ -6416,7 +6415,7 @@ body, html, .wrap {
   right: 0;
   top: 0; }
 
-@media (max-width: 991px) {
+@media (max-width: 575px) {
   .service-page .header {
     position: absolute;
     left: 0;

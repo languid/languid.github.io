@@ -16,13 +16,16 @@
     return check;
   }();
   ~function(){
-    if (isMobile) {
-      function checkSize () {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px';
+    function checkSize () {
+      var width = document.documentElement.clientWidth;
+      var fz = 16
+      if (width < 575) {
+        fz = width / 20
       }
-      window.addEventListener('resize', checkSize, false)
-      checkSize();
+      document.documentElement.style.fontSize = fz + 'px';
     }
+    window.addEventListener('resize', checkSize, false)
+    checkSize();
   }();
 </script>
   <title>Title</title>
@@ -39,7 +42,11 @@
   <section class="screen screen-home">
     <div class="inner">
       <div class="logo"></div>
-      <p class="slogan">DESIGN FUTURE</p>
+      <p class="slogan">
+        <i class="line"></i>
+        <span>DESIGN FUTURE</span>
+        <i class="line"></i>
+      </p>
       <p class="subtitle">
         <span class="text">品牌策略</span><i class="divide"></i>
         <span class="text">创意互动</span><i class="divide"></i>
@@ -83,29 +90,29 @@
   </section>
   <section class="screen screen-partner">
     <div class="hd">
-      <h3 class="title"> 一切只为未来更多美好</h3>
-      <p class="subtitle">我揽百山石，君得美玉成。LEOSTO愿做品牌与时间的朋友，在相互信赖中共同探索更好的一切。</p>
+        <h3 class="title"> 一切只为未来更多美好</h3>
+        <p class="subtitle">我揽百山石，君得美玉成。LEOSTO愿做品牌与时间的朋友，在相互信赖中共同探索更好的一切。</p>
     </div>
     <div class="bd">
-      <ul class="partner-list">
-        <li class="partner-list-item"><img src="dist/assets/logo-1.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-2.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-3.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-4.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-5.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-6.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-7.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-8.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-9.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-10.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-11.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-12.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-13.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-14.png" alt=""></li>
-        <li class="partner-list-item"><img src="dist/assets/logo-15.png" alt=""></li>
-      </ul>
+        <ul class="partner-list">
+            <li class="partner-list-item"><img src="dist/assets/logo-1.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-2.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-3.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-4.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-5.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-6.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-7.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-8.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-9.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-10.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-11.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-12.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-13.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-14.png" alt=""></li>
+            <li class="partner-list-item"><img src="dist/assets/logo-15.png" alt=""></li>
+        </ul>
     </div>
-  </section>
+</section>
   <footer class="footer">
   <div class="inner">
     <div class="footer-logo">
@@ -128,9 +135,12 @@
     </div>
     <div class="sns">
       <div class="websites">
-        <a href="#"><img src="./dist/img/behance.svg" alt=""></a>
-        <a href="#"><img src="./dist/img/dribbble.svg" alt=""></a>
-        <a href="#"><img src="./dist/img/weibo.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/behance.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/dribbble.svg" alt=""></a>
+        <a href="#" class="d-none d-md-inline"><img src="./dist/img/weibo.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/wechat-icon.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/dribbble-icon-grey.svg" alt=""></a>
+        <a href="#" class="d-sm-inline d-md-none"><img src="./dist/img/weibo-icon-grey.svg" alt=""></a>
       </div>
       <div class="wechat">
         <img src="./dist/assets/qr-wechat.png" alt="">
