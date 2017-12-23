@@ -27,58 +27,59 @@
 </script>
   <title>Title</title>
 </head>
-<body class="home-page">
+<body class="service-page">
 <div class="wrap">
   <header class="header">
+    <div class="logo"></div>
     <div class="menu-btn">
       <div class="menu-btn-line"></div>
       <div class="menu-btn-line"></div>
       <div class="menu-btn-line"></div>
     </div>
   </header>
-  <section class="screen screen-home">
-    <div class="inner">
-      <div class="logo"></div>
-      <p class="slogan">DESIGN FUTURE</p>
-      <p class="subtitle">
-        <span class="text">品牌策略</span><i class="divide"></i>
-        <span class="text">创意互动</span><i class="divide"></i>
-        <span class="text">U I & U E</span><i class="divide"></i>
-        <span class="text">技术开发</span>
-      </p>
-      <div class="arrow-down"></div>
-    </div>
+  <section class="screen screen-billboard d-none d-md-block">
+    <img src="./dist/assets/our-service.jpg" alt="">
   </section>
-  <section class="screen screen-case">
+  <section class="screen screen-business">
     <div class="hd">
-      <h3 class="title d-block d-md-none">揽石, 用心打造产品与品牌</h3>
-      <h3 class="title d-none d-md-block">LEOSTO致力于建立强大的品牌感染力与卓越的服务体验</h3>
-      <p class="subtitle d-none d-md-block">调研分析、策略定位、品牌视觉、交互与用户体验优化、产品与系统设计开发，<br/>LEOSTO运用全媒介工具与方法，为品牌与产品开拓更好的未来。</p>
+      <h3 class="title">我们的服务</h3>
+      <p class="subtitle d-none d-md-block">我们量身定制服务，以满足每个客户的需求，并一路协作，将优秀的产品，服务和经验推向市场。我们以市场机遇为基础开展工作，坚持不懈地专注于成果，帮助客户发展内部能力。</p>
     </div>
     <div class="bd">
-      <ul class="case-list">
-        <li class="case-list-item colspan-2">
-          <img src="dist/assets/case-1.png" alt="">
-        </li>
-        <li class="case-list-item">
-          <img src="dist/assets/case-2.png" alt="">
-        </li>
-        <li class="case-list-item">
-          <img src="dist/assets/case-3.png" alt="">
-        </li>
-        <li class="case-list-item">
-          <img src="dist/assets/case-4.png" alt="">
-        </li>
-        <li class="case-list-item">
-          <img src="dist/assets/case-5.png" alt="">
-        </li>
-        <li class="case-list-item">
-          <img src="dist/assets/case-6.png" alt="">
-        </li>
-        <li class="case-list-item">
-          <img src="dist/assets/case-7.png" alt="">
-        </li>
-      </ul>
+      <div class="business row">
+        <div class="business-item brand col-6 col-md-3">
+          <div class="icon"></div>
+          <h5 class="business-title">品牌策略</h5>
+          <p class="business-task">用户研究</p>
+          <p class="business-task">需求分析</p>
+          <p class="business-task">信息可视化</p>
+          <p class="business-task">标志设计及企业VI体系</p>
+        </div>
+        <div class="business-item interaction col-6 col-md-3">
+          <div class="icon"></div>
+          <h5 class="business-title">创意互动</h5>
+          <p class="business-task">创意h5设计</p>
+          <p class="business-task">广告设计</p>
+          <p class="business-task">营销策划</p>
+          <p class="business-task">信息可视化</p>
+        </div>
+        <div class="business-item mobile-design col-6 col-md-3">
+          <div class="icon"></div>
+          <h5 class="business-title">移动界面</h5>
+          <p class="business-task">移动界面设计</p>
+          <p class="business-task">iOS/Android界面设计</p>
+          <p class="business-task">竞品分析</p>
+          <p class="business-task">交互设计</p>
+        </div>
+        <div class="business-item develop col-6 col-md-3">
+          <div class="icon"></div>
+          <h5 class="business-title">开发运维</h5>
+          <p class="business-task">html5设计开发</p>
+          <p class="business-task">移动网站设计开发</p>
+          <p class="business-task">手机网站/响应式网站</p>
+          <p class="business-task">移动网站设计开发</p>
+        </div>
+      </div>
     </div>
   </section>
   <section class="screen screen-partner">
@@ -106,7 +107,59 @@
       </ul>
     </div>
   </section>
-  <footer class="footer">
+  <section class="screen screen-contact d-none d-md-block">
+    <div class="hd">
+      <h3 class="title">快速提您的需求</h3>
+    </div>
+    <div class="bd">
+      <div class="form">
+        <div class="row form-group">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="您的姓名">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="您的邮箱">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="电话">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="公司名称">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col">
+            <textarea placeholder="您的需求描述？" class="form-control" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col">
+            <button class="btn btn-main">发送您的需求</button>
+          </div>
+          <div class="col text-right contact-with-email">
+            或者发送商务咨询到邮箱：<a href="mailto:sayhi@leosto.com" class="text-main">sayhi@leosto.com</a>
+          </div>
+        </div>
+        <p class="contact-other-title">您也可以通过以下方式联系我们</p>
+        <div class="d-flex">
+          <div class="contact-way">
+            <p>邮箱：sayhi@leosto.com</p>
+            <p>手机：13810699816</p>
+            <p>座机：（+86）010-57281080</p>
+            <p>Q Q： 980090552 在线咨询</p>
+            <p>地址：北京通州万达写字楼A座2523室</p>
+          </div>
+          <div class="ar-code ml-auto">
+            <img src="./dist/assets/qr-code.png" class="mr-3" width="150" alt="">
+            <img src="./dist/assets/qr-code.png" width="150" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <footer class="footer">
   <div class="inner">
     <div class="footer-logo">
       <div class="logo"></div>
