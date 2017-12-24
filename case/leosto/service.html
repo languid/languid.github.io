@@ -35,11 +35,28 @@
   <header class="header">
     <div class="logo"></div>
     <div class="menu-btn">
-      <div class="menu-btn-line"></div>
-      <div class="menu-btn-line"></div>
-      <div class="menu-btn-line"></div>
+        <div class="menu-btn-line"></div>
+        <div class="menu-btn-line"></div>
+        <div class="menu-btn-line"></div>
     </div>
-  </header>
+</header>
+  <div class="menu">
+    <span class="menu-close"></span>
+    <ul class="menu-list">
+        <li class="menu-list-item">
+            <a href="index.html">首页</a>
+        </li>
+        <li class="menu-list-item">
+            <a href="#">案例</a>
+        </li>
+        <li class="menu-list-item">
+            <a href="service.html">服务</a>
+        </li>
+        <li class="menu-list-item">
+            <a href="about.html">关于我们</a>
+        </li>
+    </ul>
+</div>
   <section class="screen screen-billboard d-none d-lg-block">
     <img src="./dist/assets/our-service.jpg" alt="">
   </section>
@@ -200,6 +217,26 @@
     © 2017 Leosto. All rights reserved.
   </p>
 </footer>
+<script>
+  ~function () {
+    var menu = document.querySelector('.menu')
+    var menuBtn = document.querySelector('.menu-btn')
+    var closeBtn = menu.querySelector('.menu-close')
+    var menuList = menu.querySelector('.menu-list')
+    menuBtn.addEventListener('click', function () {
+      menu.classList.add('open')
+    }, false)
+    closeBtn.addEventListener('click', function () {
+      menu.classList.remove('open')
+    }, false)
+    document.documentElement.addEventListener('mousedown', function (e) {
+      if (e.target === menuList || menuList.contains(e.target)) {
+        return
+      }
+      menu.classList.remove('open')
+    })
+  }()
+</script>
 </div>
 </body>
 </html>
