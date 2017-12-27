@@ -6172,12 +6172,19 @@ body, html, .wrap {
     position: absolute;
     left: 50%;
     bottom: 2rem;
-    width: 15px;
-    height: 15px;
-    border-left: 3px solid #000;
-    border-bottom: 3px solid #000;
-    border-radius: 3px;
-    transform: rotate(-45deg); }
+    opacity: 0;
+    animation: 1s normal arrow-down-show forwards;
+    animation-delay: 100ms; }
+    .screen-home .arrow-down::before {
+      content: '';
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-left: 3px solid #000;
+      border-bottom: 3px solid #000;
+      border-radius: 3px;
+      animation: 3s infinite arrow-down-bounce ease-in-out;
+      animation-delay: 200ms; }
   @media (max-width: 575px) {
     .screen-home .slogan {
       margin: 1rem auto;
@@ -6195,6 +6202,22 @@ body, html, .wrap {
       .screen-home .subtitle .divide:nth-of-type(even) {
         display: none;
         flex: none; } }
+
+@keyframes arrow-down-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0px); } }
+
+@keyframes arrow-down-bounce {
+  0% {
+    transform: rotate(-45deg) translate(0); }
+  50% {
+    transform: rotate(-45deg) translate(-5px, 5px); }
+  100% {
+    transform: rotate(-45deg) translateY(0); } }
 
 .screen-case .case-list {
   padding: 0;
@@ -6272,13 +6295,17 @@ body, html, .wrap {
     background-repeat: no-repeat;
     background-image: url("./img/logo-black.svg"); }
   .header .menu-btn {
+    position: relative;
+    z-index: 1;
     width: 1.6rem;
     margin-left: auto;
     cursor: pointer; }
   .header .menu-btn-line {
     border-radius: 4px;
     height: 3px;
-    background: #000; }
+    background: #000;
+    transition: transform 300ms ease;
+    transform-origin: right center; }
     .header .menu-btn-line + .menu-btn-line {
       margin-top: 0.4rem; }
   @media (max-width: 575px) {
@@ -6290,22 +6317,35 @@ body, html, .wrap {
         height: 1.23077rem; }
       .header .menu-btn {
         width: 1.2rem; }
-        .header .menu-btn .menu-btn-line {
-          background: #000;
-          height: 2px; }
-          .header .menu-btn .menu-btn-line + .menu-btn-line {
-            margin-top: 0.3rem; } }
+      .header .menu-btn-line {
+        background: #000;
+        height: 2px; }
+        .header .menu-btn-line + .menu-btn-line {
+          margin-top: 0.3rem; } }
   .header.white .logo {
     background-image: url("./img/logo-white.svg"); }
   .header.white .menu-btn-line {
     background: #fff; }
+  .header.open .menu {
+    right: 0; }
+    .header.open .menu::before {
+      opacity: 1;
+      pointer-events: inherit; }
+  .header.open .menu-btn-line {
+    background: #fff !important; }
+  .header.open .menu-btn-line:nth-of-type(1) {
+    transform: translateX(-10px) rotate(-45deg); }
+  .header.open .menu-btn-line:nth-of-type(2) {
+    opacity: 0;
+    transform: translateX(100%); }
+  .header.open .menu-btn-line:nth-of-type(3) {
+    transform: translateX(-10px) rotate(45deg); }
 
 .menu {
   position: fixed;
   right: -20rem;
   top: 0;
   bottom: 0;
-  z-index: 2;
   display: flex;
   width: 20rem;
   color: #fff;
@@ -6370,11 +6410,6 @@ body, html, .wrap {
       .menu .menu-list-item a:hover {
         background: #333;
         text-decoration: none; }
-  .menu.open {
-    right: 0; }
-    .menu.open::before {
-      opacity: 1;
-      pointer-events: inherit; }
   @media (max-width: 767px) {
     .menu {
       width: 100%;
