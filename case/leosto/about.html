@@ -39,24 +39,23 @@
         <div class="menu-btn-line"></div>
         <div class="menu-btn-line"></div>
     </div>
+    <nav class="menu">
+        <ul class="menu-list">
+            <li class="menu-list-item">
+                <a href="index.html">首页</a>
+            </li>
+            <li class="menu-list-item">
+                <a href="#">案例</a>
+            </li>
+            <li class="menu-list-item">
+                <a href="service.html">服务</a>
+            </li>
+            <li class="menu-list-item">
+                <a href="about.html">关于我们</a>
+            </li>
+        </ul>
+    </nav>
 </header>
-    <div class="menu">
-    <span class="menu-close"></span>
-    <ul class="menu-list">
-        <li class="menu-list-item">
-            <a href="index.html">首页</a>
-        </li>
-        <li class="menu-list-item">
-            <a href="#">案例</a>
-        </li>
-        <li class="menu-list-item">
-            <a href="service.html">服务</a>
-        </li>
-        <li class="menu-list-item">
-            <a href="about.html">关于我们</a>
-        </li>
-    </ul>
-</div>
   <section class="screen screen-about">
     <div class="hd">
       <h3 class="title">我们是谁</h3>
@@ -114,21 +113,30 @@
 </footer>
 <script>
   ~function () {
-    var menu = document.querySelector('.menu')
-    var menuBtn = document.querySelector('.menu-btn')
-    var closeBtn = menu.querySelector('.menu-close')
-    var menuList = menu.querySelector('.menu-list')
-    menuBtn.addEventListener('click', function () {
-      menu.classList.add('open')
-    }, false)
-    closeBtn.addEventListener('click', function () {
-      menu.classList.remove('open')
-    }, false)
-    document.documentElement.addEventListener('mousedown', function (e) {
-      if (e.target === menuList || menuList.contains(e.target)) {
-        return
+    var header = document.querySelector('.header')
+    var menu = header.querySelector('.menu')
+    var menuBtn = header.querySelector('.menu-btn')
+    var menuList = header.querySelector('.menu-list')
+    var isOpen = false
+
+    function toggle () {
+      isOpen = header.classList.contains('open')
+      if (!isOpen) {
+        header.classList.add('open')
+      } else {
+        header.classList.remove('open')
       }
-      menu.classList.remove('open')
+      isOpen = !isOpen
+    }
+
+    menuBtn.addEventListener('click', function () {
+      toggle()
+    }, false)
+
+    document.documentElement.addEventListener('mousedown', function (e) {
+      if (e.target === menu) {
+        toggle()
+      }
     })
   }()
 </script>
