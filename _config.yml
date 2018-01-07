@@ -16,6 +16,7 @@
 title: Blog
 email: languid.jeremy@gmail.com
 description: Be An Artist.
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yinxiong.name" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Yinxiong
